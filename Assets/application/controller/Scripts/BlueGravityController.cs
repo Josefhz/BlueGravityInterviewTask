@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlueGravityController : MonoBehaviour
+public class BlueGravityController : BlueGravityElement
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [HideInInspector] public PlayerController player;
 
-    // Update is called once per frame
-    void Update()
+    public void Init()
     {
-        
+        player = GetComponent<PlayerController>();
+        player.InitAppInstance(app);
     }
 }
