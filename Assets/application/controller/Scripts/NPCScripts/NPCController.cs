@@ -28,4 +28,5 @@ public class NPCController : BlueGravityElement
         app.view.npc.OnPlayerNearby(statement);
         app.model.player.setPlayerCanInteract(statement);
     }
+
 }

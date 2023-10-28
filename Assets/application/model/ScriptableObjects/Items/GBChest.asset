@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cad37cdec3e3649599dcedbacaa18ce9, type: 3}
+  m_Name: GBChest
+  m_EditorClassIdentifier: 
+  Name: Gravity Blue Chest
+  itemGFX:
+  - {fileID: 21300000, guid: 36dae6bc3b8dc4472b16fa339eee90e9, type: 3}
+  - {fileID: 21300000, guid: 5ae0eae5da08d4e5cb57e7ef7f5e7b3a, type: 3}
+  shopItemIcon: {fileID: 21300000, guid: 0f7d9592b9adb4ff4a8eab67c4d36f19, type: 3}
+  ItemType: 1
+  price: 15
+  isPair: 1

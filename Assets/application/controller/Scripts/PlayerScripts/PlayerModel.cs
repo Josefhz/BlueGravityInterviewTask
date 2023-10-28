@@ -28,6 +28,9 @@ public class PlayerModel : BlueGravityElement
     public bool isWalking;
     public bool isRunning;
 
+    [Header("Player equipment")]
+    public List<ItemSlot> PlayerEquipment;
+
 
     private void Awake()
     {
@@ -85,6 +88,21 @@ public class PlayerModel : BlueGravityElement
     public void setPlayerIsInteracting(bool statement)
     {
         isInteracting = statement;
+    }
+
+    public void EquipItem(ItemScriptable pItem)
+    {
+        foreach(ItemSlot slot in PlayerEquipment)
+        {
+            if (pItem.ItemType == slot.SlotItem)
+            {
+                for (int i = 0; i < slot.slots.Length; i++)
+                {
+                    slot.slots[i].sprite = pItem.itemGFX[i];
+                }
+            }
+        }
+
     }
     
 

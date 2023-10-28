@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cad37cdec3e3649599dcedbacaa18ce9, type: 3}
+  m_Name: GBShoulders
+  m_EditorClassIdentifier: 
+  Name: Gravity Blue Shoulders
+  itemGFX:
+  - {fileID: 21300000, guid: d625aa334a85c4ff5ac4f8184dc70ded, type: 3}
+  - {fileID: 21300000, guid: ee199384f4fa24616901fa00b597e65a, type: 3}
+  - {fileID: 21300000, guid: 9b8144a4617594bfa89bdd5b5daff17a, type: 3}
+  - {fileID: 21300000, guid: f4404870fad9f48d0bfa176972667dec, type: 3}
+  shopItemIcon: {fileID: 21300000, guid: b82b7203596c243499b4795cee0b92af, type: 3}
+  ItemType: 5
+  price: 60
+  isPair: 1

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class GUIView : BlueGravityElement
 {
     public Transform answerContainer;
+    public Transform shopItemContainer;
 
     public GameObject vendorNpcGUI;
     public GameObject dialogueTab;
@@ -73,6 +74,35 @@ public class GUIView : BlueGravityElement
     {
         dialogueTab.SetActive(false);
         shopTab.SetActive(true);
+
+        UpdateShop();
+    }
+
+    public void UpdateShop()
+    {
+        ClearShop();
+        InstantiateShopItems();
+    }
+
+    public void InstantiateShopItems()
+    {
+        app.model.gui.currentShopItems = new List<GameObject>();
+
+        var AllItems = app.model.gui.shopItems;
+
+        foreach (ItemScriptable item in AllItems)
+        {
+            var instanceItem = Instantiate(app.model.gui.itemPrefab, shopItemContainer);
+            instanceItem.GetComponent<ItemScript>().setup(item, app);
+            app.model.gui.currentShopItems.Add(instanceItem);
+        }
+    }
+
+
+    public void ClearShop()
+    {
+        foreach (Transform t in shopItemContainer)
+            Destroy(t.gameObject);
     }
 
     public void OpenDialogueTab()
