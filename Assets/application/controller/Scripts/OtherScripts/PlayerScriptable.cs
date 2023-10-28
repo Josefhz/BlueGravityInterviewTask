@@ -5,8 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Player", order = 0)]
 public class PlayerScriptable : ScriptableObject
 {
-    public float speed;
-    public float sprintSpeed;
+    public float idleSpeed;
+    public float cautiousSpeed;
+    public float combatSpeed;
+
     public float attackRange;
     public Stats stats;
     public string[] AttackAnimationState;

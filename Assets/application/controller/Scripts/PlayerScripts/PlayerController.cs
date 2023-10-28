@@ -17,6 +17,7 @@ public class PlayerController : BlueGravityElement
     public void Move()
     {
         if (!app) return;
+
         app.view.player.Move();
     }
 

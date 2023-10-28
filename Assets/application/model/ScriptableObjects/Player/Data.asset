@@ -12,13 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f9ea40ee3460435fb2662f4b861a235, type: 3}
   m_Name: Data
   m_EditorClassIdentifier: 
-  speed: 5
-  sprintSpeed: 10
+  idleSpeed: 2
+  cautiousSpeed: 4
+  combatSpeed: 8
   attackRange: 5
   stats:
-    life: 100
-    damage: 10
-    armor: 5
     attackCooldown: 0.2
   AttackAnimationState:
   - Attack 01

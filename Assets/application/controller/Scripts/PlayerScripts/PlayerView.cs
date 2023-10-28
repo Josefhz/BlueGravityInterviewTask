@@ -24,6 +24,31 @@ public class PlayerView : BlueGravityElement
         rb.velocity = model.direction * model.speed;
 
         CheckAndUpdateDirection();
+        MovementAnimationsManagement();
+    }
+
+    public void MovementAnimationsManagement()
+    {
+        if (model.direction == Vector2.zero)
+        {
+            PlayerIdle();
+            return;
+        }
+
+        model.setPlayerRunning(model.speed == model.brain.idleSpeed ? false : true);
+        model.setPlayerWalking(model.speed == model.brain.idleSpeed ? true : false);
+
+        anim.SetBool("isRunning", model.speed == model.brain.idleSpeed ? false : true);
+        anim.SetBool("isWalking", model.speed == model.brain.idleSpeed ? true : false);
+    }
+
+    public void PlayerIdle()
+    {
+        model.setPlayerRunning(false);
+        model.setPlayerWalking(false);
+
+        anim.SetBool("isRunning", false);
+        anim.SetBool("isWalking", false);
     }
 
     public void CheckAndUpdateDirection()
@@ -75,5 +100,10 @@ public class PlayerView : BlueGravityElement
     {
         var rngAttackAnim = Random.Range(0, 3); // 3 = Attack animation amount
         anim.SetTrigger(model.brain.AttackAnimationState[rngAttackAnim]);
+    }
+
+    public Vector3 getPlayerPosition()
+    {
+        return playerObject.transform.position;
     }
 }
