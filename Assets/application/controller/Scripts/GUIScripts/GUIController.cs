@@ -16,6 +16,19 @@ public class GUIController : BlueGravityElement
         view.openNpcGUI();
         app.model.player.setPlayerIsInteracting(true);
 
+        setupDialogueTab();
+    }
+
+    public void nextDialogueTab()
+    {
+        if (app.model.npc.brain.currentDialogueIndex < app.model.npc.brain.possibleDialogues.Length)
+            app.model.npc.brain.currentDialogueIndex++;
+
+        setupDialogueTab();
+    }
+
+    public void setupDialogueTab()
+    {
         view.setupDialogueTab(app.model.npc.brain.possibleDialogues[app.model.npc.brain.currentDialogueIndex]);
     }
 

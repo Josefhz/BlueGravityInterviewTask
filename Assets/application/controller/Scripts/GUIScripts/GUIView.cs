@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GUIView : BlueGravityElement
 {
@@ -13,6 +14,10 @@ public class GUIView : BlueGravityElement
 
     public TextMeshProUGUI npcSpeechText;
 
+    private void Start()
+    {
+        app.model.gui.ShopBackButton.onClick.AddListener(OpenDialogueTab);
+    }
 
     public bool getShopTabActive()
     {
@@ -41,12 +46,39 @@ public class GUIView : BlueGravityElement
         npcSpeechText.text = pDialogue.speech;
 
         if (pDialogue.isShop)
+        {
             answer = Instantiate(app.model.gui.shopDialoguePrefab, answerContainer);
+            answer.GetComponent<Button>().onClick.AddListener(OnShopAnswerClick);
+        }
         else
+        {
             answer = Instantiate(app.model.gui.dialoguePrefab, answerContainer);
+            answer.GetComponent<Button>().onClick.AddListener(OnDialogueAnswerClick);
+        }
 
         answer.GetComponent<myDialogueScript>().dialogueText.text = pDialogue.Answer;
        
+    }
+
+    public void OnDialogueAnswerClick()
+    {
+        app.controller.gui.nextDialogueTab();
+    }
+    public void OnShopAnswerClick()
+    {
+        OpenShop();
+    }
+
+    public void OpenShop()
+    {
+        dialogueTab.SetActive(false);
+        shopTab.SetActive(true);
+    }
+
+    public void OpenDialogueTab()
+    {
+        dialogueTab.SetActive(true);
+        shopTab.SetActive(false);
     }
 
     public void clearAnswerContainer()
