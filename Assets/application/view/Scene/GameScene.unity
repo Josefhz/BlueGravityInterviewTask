@@ -877,6 +877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   app: {fileID: 0}
+  brain: {fileID: 11400000, guid: 6ea975eb728f14decb01875c24b8a745, type: 2}
   dialoguePrefab: {fileID: 7124724838601254548, guid: ff5ff26789afb48a0a0adbe79962fdaf, type: 3}
   shopDialoguePrefab: {fileID: 2812760272703862598, guid: 9db3ed826c17e4355b457d01a83b73f0, type: 3}
   itemPrefab: {fileID: 7605317294872677171, guid: 6c370bfa97b594149be2a855a4c276db, type: 3}

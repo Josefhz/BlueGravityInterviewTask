@@ -21,15 +21,28 @@ public class GUIController : BlueGravityElement
 
     public void nextDialogueTab()
     {
-        if (app.model.npc.brain.currentDialogueIndex < app.model.npc.brain.possibleDialogues.Length)
-            app.model.npc.brain.currentDialogueIndex++;
+        var npcBrain = app.model.npc.brain;
 
-        setupDialogueTab();
+        if (npcBrain.currentDialogueIndex < npcBrain.possibleDialogues.Length)
+        {
+            npcBrain.currentDialogueIndex++;
+
+            setupDialogueTab();
+        }
     }
 
     public void setupDialogueTab()
     {
         view.setupDialogueTab(app.model.npc.brain.possibleDialogues[app.model.npc.brain.currentDialogueIndex]);
+
+        if (app.model.npc.brain.currentDialogueIndex == app.model.npc.brain.possibleDialogues.Length - 1)
+            setupLastDialogueTab();
+    }
+
+    public void setupLastDialogueTab()
+    {
+        view.setupDialogueTab(app.model.npc.brain.possibleDialogues[app.model.npc.brain.currentDialogueIndex]);
+        view.spawnLastAnswers(app.model.npc.brain.sellItemsAnswer, app.model.npc.brain.commandAnwer);
     }
 
     public void CloseVendorTab()

@@ -58,7 +58,17 @@ public class GUIView : BlueGravityElement
         }
 
         answer.GetComponent<myDialogueScript>().dialogueText.text = pDialogue.Answer;
-       
+    }
+
+    public void spawnLastAnswers(string pSellAnswer, string pCommandAnswer)
+    {
+        var sellAnswer = Instantiate(app.model.gui.shopDialoguePrefab, answerContainer);
+        sellAnswer.GetComponent<Button>().onClick.AddListener(OnSellItemsClick);
+        sellAnswer.GetComponent<myDialogueScript>().dialogueText.text = pSellAnswer;
+
+        var commandAnswer = Instantiate(app.model.gui.shopDialoguePrefab, answerContainer);
+        commandAnswer.GetComponent<Button>().onClick.AddListener(OnCommandClick);
+        commandAnswer.GetComponent<myDialogueScript>().dialogueText.text = pCommandAnswer;
     }
 
     public void OnDialogueAnswerClick()
@@ -70,21 +80,32 @@ public class GUIView : BlueGravityElement
         OpenShop();
     }
 
+    public void OnSellItemsClick()
+    {
+        // sell gems
+    }
+
+    public void OnCommandClick()
+    {
+        // make npc RP and shit
+        app.model.gui.setupNewShop();
+    }
+
     public void OpenShop()
     {
         dialogueTab.SetActive(false);
         shopTab.SetActive(true);
 
-        UpdateShop();
+        CreateShop();
     }
 
-    public void UpdateShop()
+    public void CreateShop()
     {
         ClearShop();
-        InstantiateShopItems();
+        InstantiateNewShopItems();
     }
 
-    public void InstantiateShopItems()
+    public void InstantiateNewShopItems()
     {
         app.model.gui.currentShopItems = new List<GameObject>();
 
@@ -93,9 +114,19 @@ public class GUIView : BlueGravityElement
         foreach (ItemScriptable item in AllItems)
         {
             var instanceItem = Instantiate(app.model.gui.itemPrefab, shopItemContainer);
-            instanceItem.GetComponent<ItemScript>().setup(item, app);
+            instanceItem.GetComponent<ItemScript>().setup(item, this);
             app.model.gui.currentShopItems.Add(instanceItem);
         }
+    }
+
+    public void BuyItemFromShop(GameObject item)
+    {
+        app.model.player.EquipItem(item.GetComponent<ItemScript>().item);
+
+        app.model.gui.currentShopItems.Remove(item);
+        app.model.gui.shopItems.Remove(item.GetComponent<ItemScript>().item);
+        Destroy(item);
+
     }
 
 

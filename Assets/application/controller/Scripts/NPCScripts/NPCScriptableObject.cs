@@ -9,4 +9,7 @@ public class NPCScriptableObject : ScriptableObject
 
     public NPCDialogue[] possibleDialogues;
     public int currentDialogueIndex;
+
+    public string sellItemsAnswer;
+    public string commandAnwer;
 }

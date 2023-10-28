@@ -32,3 +32,5 @@ MonoBehaviour:
     Answer: Ok. Let me check your shop
     isShop: 1
   currentDialogueIndex: 0
+  sellItemsAnswer: I brought you some gems.
+  commandAnwer: Go ahead and bring me new loot.

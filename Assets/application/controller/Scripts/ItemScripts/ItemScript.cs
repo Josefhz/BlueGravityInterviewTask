@@ -6,15 +6,15 @@ using UnityEngine.UI;
 public class ItemScript : MonoBehaviour
 {
     public ItemScriptable item;
-    public BlueGravityApplication app;
+    public GUIView view;
     public Image itemIcon;
     public Text itemName;
     public Text itemPrice;
     public Button btnBuy;
 
-    public void setup(ItemScriptable pItem, BlueGravityApplication pApp)
+    public void setup(ItemScriptable pItem, GUIView pView)
     {
-        app = pApp;
+        view = pView;
         item = pItem;
         itemIcon.sprite = pItem.shopItemIcon;
         itemName.text = pItem.Name;
@@ -25,6 +25,6 @@ public class ItemScript : MonoBehaviour
     {
         // return if no money etc
 
-        app.model.player.EquipItem(item);
+        view.BuyItemFromShop(this.gameObject);
     }
 }

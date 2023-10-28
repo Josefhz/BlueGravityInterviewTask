@@ -102,11 +102,6 @@ public class PlayerView : BlueGravityElement
         anim.SetTrigger(model.brain.AttackAnimationState[rngAttackAnim]);
     }
 
-    public void EquipItem(ItemScriptable pItem)
-    {
-
-    }
-
     public Vector3 getPlayerPosition()
     {
         return playerObject.transform.position;
