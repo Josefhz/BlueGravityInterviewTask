@@ -23,6 +23,7 @@ public class PlayerModel : BlueGravityElement
     public enum PlayerState { Idle, Cautious,  Combat }
 
     [Header("Booleans")]
+    public bool canInteract;
     public bool isInteracting;
     public bool isWalking;
     public bool isRunning;
@@ -74,6 +75,16 @@ public class PlayerModel : BlueGravityElement
     public void setPlayerWalking(bool statement)
     {
         isWalking = statement;
+    }
+
+    public void setPlayerCanInteract(bool statement)
+    {
+        canInteract = statement;
+    }
+
+    public void setPlayerIsInteracting(bool statement)
+    {
+        isInteracting = statement;
     }
     
 

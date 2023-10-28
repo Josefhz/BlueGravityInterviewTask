@@ -6,6 +6,7 @@ public class BlueGravityController : BlueGravityElement
 {
     [HideInInspector] public PlayerController player;
     [HideInInspector] public NPCController npc;
+    [HideInInspector] public GUIController gui;
 
     bool isInitialized;
 
@@ -13,9 +14,11 @@ public class BlueGravityController : BlueGravityElement
     {
         player = GetComponent<PlayerController>();
         npc = GetComponent<NPCController>();
+        gui = GetComponent<GUIController>();
 
         player.InitAppInstance(app);
         npc.InitAppInstance(app);
+        gui.InitAppInstance(app);
 
         isInitialized = true;
     }
@@ -35,6 +38,8 @@ public class BlueGravityController : BlueGravityElement
         player.Move();
 
         player.AttackInput();
+
+        player.InteractInput();
     }
 
     void VendorNPCManagement()

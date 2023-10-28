@@ -6,13 +6,26 @@ public class NPCController : BlueGravityElement
 {
     public void CheckForPlayerDistance()
     {
-        if (Vector3.Distance(app.view.player.getPlayerPosition(),
-            app.view.npc.getNPCPosition()) < app.model.npc.getNPCInteractRange())
+        var playerDistance = Vector3.Distance(app.view.player.getPlayerPosition(),
+            app.view.npc.getNPCPosition());
+
+        if (playerDistance < app.model.npc.getNPCInteractRange()
+            && app.model.player.isInteracting == false)
         {
-            app.view.npc.OnPlayerNearby(true);
+            setPlayerNearby(true);
             return;
         }
 
-        app.view.npc.OnPlayerNearby(false);
+        if (playerDistance > app.model.npc.getNPCInteractRange() && app.model.player.isInteracting)
+            app.controller.gui.CloseVendorTab();
+
+          setPlayerNearby(false);
+
+    }
+
+    public void setPlayerNearby(bool statement)
+    {
+        app.view.npc.OnPlayerNearby(statement);
+        app.model.player.setPlayerCanInteract(statement);
     }
 }

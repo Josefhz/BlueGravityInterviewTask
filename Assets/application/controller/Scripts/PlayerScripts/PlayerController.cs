@@ -33,4 +33,16 @@ public class PlayerController : BlueGravityElement
         }
     }
 
+    public void InteractInput()
+    {
+        if (!app) return;
+        if (!app.model.player.canInteract) return;
+        if (app.model.player.isInteracting) return;
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            app.controller.gui.InteractWithVendorTab();
+        }
+    }
+
 }
