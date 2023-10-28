@@ -41,16 +41,22 @@ public class PlayerView : BlueGravityElement
 
     public void FrontalAttack()
     {
-        if (model.currentAttackCooldown > 0)
-        {
-            model.currentAttackCooldown -= Time.deltaTime;
-            return;
-        }
+        if (!model.canAttack) return;
 
         model.UpdateAttackCooldown();
 
         RandomAttackAnimation();
         AOEDamage();
+    }
+
+    public void AttackCooldown()
+    {
+        if (model.canAttack) return;
+
+        model.currentAttackCooldown -= Time.deltaTime;
+
+        if (model.currentAttackCooldown <= 0)
+            model.canAttack = true;
     }
 
     public void AOEDamage()
@@ -61,7 +67,7 @@ public class PlayerView : BlueGravityElement
 
         foreach(Collider2D enemy in enemies)
         {
-            enemy.GetComponent<Interfaces.IStat>().TakeDamage(model.brain.stats.damage);
+            enemy.GetComponent<Interfaces.IStat>().TakeDamage();
         }
     }
 

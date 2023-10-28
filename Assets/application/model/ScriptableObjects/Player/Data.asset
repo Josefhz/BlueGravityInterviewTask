@@ -15,6 +15,11 @@ MonoBehaviour:
   speed: 5
   sprintSpeed: 10
   attackRange: 5
+  stats:
+    life: 100
+    damage: 10
+    armor: 5
+    attackCooldown: 0.2
   AttackAnimationState:
   - Attack 01
   - Attack 02

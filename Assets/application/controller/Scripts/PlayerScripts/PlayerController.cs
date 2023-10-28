@@ -24,7 +24,12 @@ public class PlayerController : BlueGravityElement
     {
         if (!app) return;
 
-        if (Input.GetButtonDown("fire0")) ;
+        app.view.player.AttackCooldown();
+
+        if (Input.GetButton("Fire1"))
+        {
+            app.view.player.FrontalAttack();
+        }
     }
 
 }

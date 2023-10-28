@@ -16,12 +16,14 @@ public class PlayerModel : BlueGravityElement
 
     public float speed;
     public float currentAttackCooldown;
+    public bool canAttack;
 
     private void Awake()
     {
         speed = brain.speed;
         lastFacedDirectionIndex = 1;
         currentAttackCooldown = 0;
+        canAttack = true;
     }
 
     public void UpdateLastFacedDirection()
@@ -31,6 +33,7 @@ public class PlayerModel : BlueGravityElement
 
     public void UpdateAttackCooldown()
     {
+        canAttack = false;
         currentAttackCooldown = brain.stats.attackCooldown;
     }
     

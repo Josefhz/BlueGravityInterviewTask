@@ -2,11 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Stats
 {
-    public int life;
-    public int damage;
-    public int armor;
-    public int attackCooldown;
-
+    public float attackCooldown;
 }
