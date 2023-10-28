@@ -13,3 +13,22 @@ MonoBehaviour:
   m_Name: Vendor
   m_EditorClassIdentifier: 
   interactRange: 3
+  possibleDialogues:
+  - speech: Greetings, welcome to your trial as a Bounty Hunter, Josef. \n We are
+      Blue Gravity and we must keep our fame of having the best with us.
+    Answer: Thanks sir! How will this trial work?
+    isShop: 0
+  - speech: "Soo as you might know, Blue Gravity makes money off receiving Bounties
+      and Collecting rare goods.\\n You will go inside the city and hunt for the
+      Bounty, we will provide you some information about how he looks.\\n Also steal
+      every expensive item you find, I\u2019ll buy then from you."
+    Answer: Sounds good sir! When am i allowed to join Blue Gravity?
+    isShop: 0
+  - speech: You will be considered ready to join us when make enough money to buy
+      all the clothes I have available for you.\n Come to me fully geared with our
+      uniform and you shall be part of us.\n Best of Luck, if you miss ur target,
+      you are out.\n Also, remember to use your smoke bomb (F) and come back here
+      when your job is done.
+    Answer: Ok. Let me check your shop
+    isShop: 1
+  currentDialogueIndex: 0

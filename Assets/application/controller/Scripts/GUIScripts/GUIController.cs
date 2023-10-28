@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GUIController : BlueGravityElement
 {
-    public GUIView view;
+    [HideInInspector] public GUIView view;
 
     public void Start()
     {
@@ -15,6 +15,8 @@ public class GUIController : BlueGravityElement
     {
         view.openNpcGUI();
         app.model.player.setPlayerIsInteracting(true);
+
+        view.setupDialogueTab(app.model.npc.brain.possibleDialogues[app.model.npc.brain.currentDialogueIndex]);
     }
 
     public void CloseVendorTab()

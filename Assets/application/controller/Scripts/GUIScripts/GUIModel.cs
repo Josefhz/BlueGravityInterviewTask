@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class GUIModel : BlueGravityElement
 {
-    
+    public GameObject dialoguePrefab;
+    public GameObject shopDialoguePrefab;
 }

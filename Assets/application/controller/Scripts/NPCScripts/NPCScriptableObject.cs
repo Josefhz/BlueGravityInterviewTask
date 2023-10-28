@@ -6,4 +6,7 @@ using UnityEngine;
 public class NPCScriptableObject : ScriptableObject
 {
     public float interactRange;
+
+    public NPCDialogue[] possibleDialogues;
+    public int currentDialogueIndex;
 }
