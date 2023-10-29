@@ -7,17 +7,27 @@ public class BoxScript : MonoBehaviour, Interfaces.IStat
     private int life;
     private int gold;
     private bool hasGem;
+    private ParticleSystem onHitVFX;
+    private ParticleSystem onDestroyVFX;
+    private ParticleSystem gem;
 
     public void Init(EnemyScriptable pBox)
     {
         life = pBox.stat.life;
 
         goldRNG(pBox.coinDropChance, pBox.possibleCoinAmount);
+        gemRNG(pBox.gemDropChance);
+
+        onHitVFX = pBox.OnHitVFX;
+        onDestroyVFX = pBox.OnDestroyVFX;
+        gem = pBox.gem;
     }
 
     public int TakeDamage(int pDamage)
     {
         life -= pDamage;
+
+        TakeHitVFX();
 
         if (life <= 0)
         {
@@ -33,9 +43,10 @@ public class BoxScript : MonoBehaviour, Interfaces.IStat
         if (hasGem)
         {
             //drop gem
+            Instantiate(gem, transform.position, Quaternion.identity);
         }
 
-        // effects.Play
+        DieVFX();
         Destroy(this.gameObject);
     }
 
@@ -49,8 +60,25 @@ public class BoxScript : MonoBehaviour, Interfaces.IStat
             gold = 0;
     }
 
-    private void gemRNG()
+    private void TakeHitVFX()
     {
+        var vfx = Instantiate(onHitVFX, transform.position, Quaternion.identity);
+        Destroy(vfx.gameObject, 3f);
+    }
 
+    private void DieVFX()
+    {
+        var vfx = Instantiate(onDestroyVFX, transform.position, Quaternion.identity);
+        Destroy(vfx.gameObject, 3f);
+    }
+
+    private void gemRNG(int pDropChance)
+    {
+        var rng = Random.Range(0, 100);
+
+        if (rng <= pDropChance)
+            hasGem = true;
+        else
+            hasGem = false;
     }
 }

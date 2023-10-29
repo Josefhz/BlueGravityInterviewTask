@@ -7,6 +7,9 @@ public class NPCModel : BlueGravityElement
     [Header("NPC Scriptable")]
     public NPCScriptableObject brain;
 
+    public int gemPrice;
+    public int tipPrice;
+
     private void Start()
     {
         brain.currentDialogueIndex = 0;

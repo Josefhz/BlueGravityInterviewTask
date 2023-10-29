@@ -6,6 +6,9 @@ using UnityEngine;
 public class PlayerView : BlueGravityElement
 {
     public GameObject playerObject;
+
+    public Transform playerVFXTransform;
+
     public DamageNumber goldPrefab;
     public DamageNumber loseGoldPrefab;
     public DamageNumber DamagePrefab;
@@ -21,6 +24,7 @@ public class PlayerView : BlueGravityElement
         rb = playerObject.GetComponent<Rigidbody2D>();
         anim = playerObject.GetComponent<Animator>();
         attackTransform = playerObject.GetComponent<PlayerCharacterScript>().attackTransform;
+        playerObject.GetComponent<PlayerCharacterScript>().Init(this);
     }
 
     public void Move()
@@ -39,20 +43,21 @@ public class PlayerView : BlueGravityElement
             return;
         }
 
-        model.setPlayerRunning(model.speed == model.brain.idleSpeed ? false : true);
-        model.setPlayerWalking(model.speed == model.brain.idleSpeed ? true : false);
+        PlayerRun();
+    }
 
-        anim.SetBool("isRunning", model.speed == model.brain.idleSpeed ? false : true);
-        anim.SetBool("isWalking", model.speed == model.brain.idleSpeed ? true : false);
+    public void PlayerRun()
+    {
+        anim.SetBool("isRunning", true);
+        model.setPlayerRunning(true);
+
     }
 
     public void PlayerIdle()
     {
         model.setPlayerRunning(false);
-        model.setPlayerWalking(false);
 
         anim.SetBool("isRunning", false);
-        anim.SetBool("isWalking", false);
     }
 
     public void CheckAndUpdateDirection()
@@ -104,8 +109,29 @@ public class PlayerView : BlueGravityElement
     public void RandomAttackAnimation()
     {
         var rngAttackAnim = Random.Range(0, 3); // 3 = Attack animation amount
+
         anim.SetTrigger(model.brain.AttackAnimationState[rngAttackAnim]);
+
+        if (rngAttackAnim > 0)
+        {
+            var vfx = Instantiate(app.model.player.miniSlashAttack, playerVFXTransform);
+            Destroy(vfx.gameObject, 3f);
+        }
+        else
+        {
+            var vfx = Instantiate(app.model.player.bigSlashAttack, playerVFXTransform);
+            Destroy(vfx.gameObject, 3f);
+        }
     }
+
+    public void collectGem()
+    {
+        var gemCollectVFX = Instantiate(app.model.player.onGemCollect, playerObject.transform);
+        Destroy(gemCollectVFX.gameObject, 3f);
+
+        app.controller.player.CollectGem();
+    }
+
 
     public Vector3 getPlayerPosition()
     {

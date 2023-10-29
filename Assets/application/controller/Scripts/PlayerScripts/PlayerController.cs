@@ -65,4 +65,15 @@ public class PlayerController : BlueGravityElement
         app.view.gui.UpdatePlayerCoins(app.model.player.coins);
     }
 
+    public void CollectGem()
+    {
+        app.model.player.CollectGem();
+    }
+
+    public void SellGems()
+    {
+        EarnCoins(app.model.npc.gemPrice * app.model.player.gems);
+        app.model.player.SellAllGems();
+    }
+
 }

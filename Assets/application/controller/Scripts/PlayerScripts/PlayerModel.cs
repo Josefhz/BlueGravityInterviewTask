@@ -29,13 +29,20 @@ public class PlayerModel : BlueGravityElement
 
     [Header("Player Money")]
     public int coins;
+    public int gems;
+
+    [Header("Player VFX Effects")]
+    public ParticleSystem miniSlashAttack;
+    public ParticleSystem bigSlashAttack;
+    public ParticleSystem onGemCollect;
 
     private void Awake()
     {
-        speed = brain.idleSpeed;
+        speed = brain.speed;
         lastFacedDirectionIndex = 1;
         currentAttackCooldown = 0;
-        coins = 100;
+        coins = brain.startCoins;
+        gems = 0;
         canAttack = true;
     }
 
@@ -94,6 +101,16 @@ public class PlayerModel : BlueGravityElement
     public void WasteCoins(int pAmount)
     {
         coins -= pAmount;
+    }
+
+    public void CollectGem()
+    {
+        gems++;
+    }
+
+    public void SellAllGems()
+    {
+        gems = 0;
     }
     
 

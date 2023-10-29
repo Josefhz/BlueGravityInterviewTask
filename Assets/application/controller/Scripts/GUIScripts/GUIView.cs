@@ -65,7 +65,7 @@ public class GUIView : BlueGravityElement
     {
         var sellAnswer = Instantiate(app.model.gui.shopDialoguePrefab, answerContainer);
         sellAnswer.GetComponent<Button>().onClick.AddListener(OnSellItemsClick);
-        sellAnswer.GetComponent<myDialogueScript>().dialogueText.text = pSellAnswer;
+        sellAnswer.GetComponent<myDialogueScript>().dialogueText.text = pSellAnswer + " (Gems: "+app.model.player.gems+")";
 
         var commandAnswer = Instantiate(app.model.gui.shopDialoguePrefab, answerContainer);
         commandAnswer.GetComponent<Button>().onClick.AddListener(OnCommandClick);
@@ -83,14 +83,16 @@ public class GUIView : BlueGravityElement
 
     public void OnSellItemsClick()
     {
-        // sell gems
-        app.controller.player.EarnCoins(Random.Range(0, 100));
+        app.controller.player.SellGems();
+        app.controller.gui.setupDialogueTab();
     }
 
     public void OnCommandClick()
     {
-        // make npc RP and shit
-        app.model.gui.setupNewShop();
+        if (app.model.player.coins < app.model.npc.tipPrice) return;
+
+        app.controller.player.LoseCoins(app.model.npc.tipPrice);
+        app.controller.npc.SetupNewShopRP();
     }
 
     public void OpenShop()

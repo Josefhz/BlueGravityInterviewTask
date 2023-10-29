@@ -8,8 +8,9 @@ public class EnemyController : BlueGravityElement
     {
         app.model.enemy.ClearBoxList();
 
-        if (app.model.enemy.CurrentBoxQuantity >= app.model.enemy.TotalBoxQuantity) return;
+        if (app.model.enemy.currentBoxList.Count >= app.model.enemy.TotalBoxQuantity) return;
+        var amountToSpawn = app.model.enemy.TotalBoxQuantity - app.model.enemy.currentBoxList.Count;
 
-        app.view.enemy.SpawnBox();
+        app.view.enemy.SpawnBox(amountToSpawn);
     }
 }

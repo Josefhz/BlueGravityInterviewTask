@@ -29,4 +29,10 @@ public class NPCController : BlueGravityElement
         app.model.player.setPlayerCanInteract(statement);
     }
 
+    public void SetupNewShopRP()
+    {
+        Debug.Log("command rp");
+        app.view.npc.SetupNewShopRP();
+    }
+
 }

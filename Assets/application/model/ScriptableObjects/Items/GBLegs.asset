@@ -18,5 +18,5 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 53ea39d01db864d82b8d30a2d97f6019, type: 3}
   shopItemIcon: {fileID: 21300000, guid: 4334d90d6d22f462ba80b9363aa333eb, type: 3}
   ItemType: 4
-  price: 50
+  price: 30
   isPair: 1

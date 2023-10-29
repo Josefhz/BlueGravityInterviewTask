@@ -6,11 +6,12 @@ public class EnemyView : BlueGravityElement
 {
     public Transform[] BoxSpawners;
 
-    public void SpawnBox()
+    public void SpawnBox(int pAmountToSpawn)
     {
-        for (int i = 0; i < BoxSpawners.Length; i++)
+        for (int i = 0; i < pAmountToSpawn; i++)
         {
             var rngSpawner = Random.Range(0, BoxSpawners.Length);
+
             if (isSpawnerBusy(BoxSpawners[rngSpawner]))
                 continue;
             else

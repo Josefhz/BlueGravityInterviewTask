@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class BlueGravityController : BlueGravityElement
 {
@@ -40,9 +41,12 @@ public class BlueGravityController : BlueGravityElement
         player.MovementInput();
         player.Move();
 
+        player.InteractInput();
+
+        if (EventSystem.current.IsPointerOverGameObject()) return;
+
         player.AttackInput();
 
-        player.InteractInput();
     }
 
     void VendorNPCManagement()

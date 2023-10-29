@@ -10,6 +10,9 @@ public class EnemyScriptable : ScriptableObject
     public int gemDropChance;
     public int[] possibleCoinAmount;
     public int[] respawnCooldown;
+    public ParticleSystem OnHitVFX;
+    public ParticleSystem OnDestroyVFX;
+    public ParticleSystem gem;
 
 
 }

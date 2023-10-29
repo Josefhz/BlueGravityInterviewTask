@@ -16,7 +16,10 @@ MonoBehaviour:
     attackCooldown: 0
     damage: 0
     life: 5
-  coinDropChance: 30
-  gemDropChance: 100
-  possibleCoinAmount: 0100000064000000
+  coinDropChance: 5
+  gemDropChance: 10
+  possibleCoinAmount: 010000000a000000
   respawnCooldown: 
+  OnHitVFX: {fileID: 198497275584819404, guid: a14411b84b82c984a8d857424c9de30b, type: 3}
+  OnDestroyVFX: {fileID: 19826678, guid: c05e92eaee7a00844867e5edc8e0dde1, type: 3}
+  gem: {fileID: 773546698915241176, guid: 4356b2afe53564978a749883704733ad, type: 3}

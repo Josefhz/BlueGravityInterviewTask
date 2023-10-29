@@ -33,4 +33,4 @@ MonoBehaviour:
     isShop: 1
   currentDialogueIndex: 2
   sellItemsAnswer: I brought you some gems.
-  commandAnwer: Bring me new loot please. (5c tip)
+  commandAnwer: Bring me new loot please. (10c tip)
