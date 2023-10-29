@@ -12,6 +12,7 @@ public class GUIView : BlueGravityElement
     public GameObject vendorNpcGUI;
     public GameObject dialogueTab;
     public GameObject shopTab;
+    public Text playerCoinsText;
 
     public TextMeshProUGUI npcSpeechText;
 
@@ -121,12 +122,17 @@ public class GUIView : BlueGravityElement
 
     public void BuyItemFromShop(GameObject item)
     {
+        app.controller.player.LoseCoins(item.GetComponent<ItemScript>().item.price);
         app.model.player.EquipItem(item.GetComponent<ItemScript>().item);
 
         app.model.gui.currentShopItems.Remove(item);
         app.model.gui.shopItems.Remove(item.GetComponent<ItemScript>().item);
         Destroy(item);
+    }
 
+    public void UpdatePlayerCoins(int pCoins)
+    {
+        playerCoinsText.text = pCoins.ToString();
     }
 
 

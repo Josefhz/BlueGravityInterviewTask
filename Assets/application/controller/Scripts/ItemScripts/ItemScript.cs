@@ -23,7 +23,7 @@ public class ItemScript : MonoBehaviour
 
     public void BuyItem()
     {
-        // return if no money etc
+        if (view.app.model.player.coins < item.price) return;
 
         view.BuyItemFromShop(this.gameObject);
     }

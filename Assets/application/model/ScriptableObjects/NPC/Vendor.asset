@@ -14,23 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactRange: 3
   possibleDialogues:
-  - speech: Greetings, welcome to your trial as a Bounty Hunter, Josef. \n We are
-      Blue Gravity and we must keep our fame of having the best with us.
-    Answer: Thanks sir! How will this trial work?
+  - speech: Welcome to your trial as a Bounty Hunter, Josef We are Blue Gravity and
+      we must only recruit the best ones. You are imprisoned inside this dungeon
+      until u gather enough gold to buy the whole Blue Gravity gear.
+    Answer: Alright, how will this work?
     isShop: 0
-  - speech: "Soo as you might know, Blue Gravity makes money off receiving Bounties
-      and Collecting rare goods.\\n You will go inside the city and hunt for the
-      Bounty, we will provide you some information about how he looks.\\n Also steal
-      every expensive item you find, I\u2019ll buy then from you."
-    Answer: Sounds good sir! When am i allowed to join Blue Gravity?
+  - speech: It is pretty simple, there are a lot of trash crates that are thrown
+      from the city above to inside this dungeon, break then and hope you find some
+      valuable gems inside. Other than that, u can also kill other prisoners to get
+      gems of then too. When u come back to me, ill pay cheapest price in every gem,
+      and will also bring with me some random gear we have for you whenever u feel
+      like.
+    Answer: Sounds good.
     isShop: 0
-  - speech: You will be considered ready to join us when make enough money to buy
-      all the clothes I have available for you.\n Come to me fully geared with our
-      uniform and you shall be part of us.\n Best of Luck, if you miss ur target,
-      you are out.\n Also, remember to use your smoke bomb (F) and come back here
-      when your job is done.
-    Answer: Ok. Let me check your shop
+  - speech: "If you don\u2019t want any of the gear I have here right now u can pay
+      me a tip and I\u2019ll bring others. Best of luck."
+    Answer: Ok. Let me check your goods.
     isShop: 1
-  currentDialogueIndex: 0
+  currentDialogueIndex: 2
   sellItemsAnswer: I brought you some gems.
-  commandAnwer: Go ahead and bring me new loot.
+  commandAnwer: Bring me new loot please. (5c tip)

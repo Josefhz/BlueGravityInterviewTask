@@ -45,4 +45,22 @@ public class PlayerController : BlueGravityElement
         }
     }
 
+    public void EarnCoins(int pAmount)
+    {
+        app.model.player.EarnCoins(pAmount);
+        app.view.player.EarnCoinsVFX(pAmount);
+
+        app.model.gui.UpdateShopItemsButtons(app.model.player.coins);
+        app.view.gui.UpdatePlayerCoins(app.model.player.coins);
+    }
+
+    public void LoseCoins(int pAmount)
+    {
+        app.model.player.WasteCoins(pAmount);
+        app.view.player.WasteCoinsVFX(pAmount);
+
+        app.model.gui.UpdateShopItemsButtons(app.model.player.coins);
+        app.view.gui.UpdatePlayerCoins(app.model.player.coins);
+    }
+
 }

@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using DamageNumbersPro;
 using UnityEngine;
 
 public class PlayerView : BlueGravityElement
 {
     public GameObject playerObject;
+    public DamageNumber goldPrefab;
+    public DamageNumber loseGoldPrefab;
+    public DamageNumber DamagePrefab;
 
     private Rigidbody2D rb;
     private PlayerModel model;
@@ -92,6 +96,7 @@ public class PlayerView : BlueGravityElement
 
         foreach(Collider2D enemy in enemies)
         {
+            DamagePrefab.Spawn(enemy.transform.position, Random.Range(0, 100));
             enemy.GetComponent<Interfaces.IStat>().TakeDamage();
         }
     }
@@ -105,6 +110,16 @@ public class PlayerView : BlueGravityElement
     public Vector3 getPlayerPosition()
     {
         return playerObject.transform.position;
+    }
+
+    public void EarnCoinsVFX(int pAmount)
+    {
+        goldPrefab.Spawn(playerObject.transform.position, pAmount);
+    }
+
+    public void WasteCoinsVFX(int pAmount)
+    {
+        loseGoldPrefab.Spawn(playerObject.transform.position, pAmount);
     }
 
     

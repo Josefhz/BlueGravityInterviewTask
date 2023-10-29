@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f9ea40ee3460435fb2662f4b861a235, type: 3}
   m_Name: Data
   m_EditorClassIdentifier: 
-  idleSpeed: 2
-  cautiousSpeed: 4
+  idleSpeed: 8
+  cautiousSpeed: 8
   combatSpeed: 8
   attackRange: 5
   stats:

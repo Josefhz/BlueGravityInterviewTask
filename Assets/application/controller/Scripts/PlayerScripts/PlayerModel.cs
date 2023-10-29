@@ -31,6 +31,9 @@ public class PlayerModel : BlueGravityElement
     [Header("Player equipment")]
     public List<ItemSlot> PlayerEquipment;
 
+    [Header("Player Money")]
+    public int coins;
+
 
     private void Awake()
     {
@@ -38,6 +41,7 @@ public class PlayerModel : BlueGravityElement
         speed = brain.idleSpeed;
         lastFacedDirectionIndex = 1;
         currentAttackCooldown = 0;
+        coins = 100;
         canAttack = true;
     }
 
@@ -103,6 +107,16 @@ public class PlayerModel : BlueGravityElement
             }
         }
 
+    }
+
+    public void EarnCoins(int pAmount)
+    {
+        coins += pAmount;
+    }
+
+    public void WasteCoins(int pAmount)
+    {
+        coins -= pAmount;
     }
     
 

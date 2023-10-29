@@ -21,6 +21,8 @@ public class GUIModel : BlueGravityElement
     private void Start()
     {
         setupNewShop();
+        UpdateShopItemsButtons(app.model.player.coins);
+        app.view.gui.UpdatePlayerCoins(app.model.player.coins);
     }
 
     public void setupNewShop()
@@ -30,6 +32,21 @@ public class GUIModel : BlueGravityElement
         for (int i = 0; i < brain.shopItemsAmount; i++)
         {
             shopItems.Add(brain.possibleShopItems[Random.Range(0, brain.possibleShopItems.Count)]);
+        }
+    }
+
+    public void UpdateShopItemsButtons(int playerCoins)
+    {
+        foreach(GameObject item in currentShopItems)
+        {
+            var itemScript = item.GetComponent<ItemScript>();
+
+            if (itemScript.item.price <= playerCoins)
+            {
+                itemScript.btnBuy.interactable = true;
+            }
+            else
+                itemScript.btnBuy.interactable = false;
         }
     }
 
