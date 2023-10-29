@@ -96,8 +96,8 @@ public class PlayerView : BlueGravityElement
 
         foreach(Collider2D enemy in enemies)
         {
-            DamagePrefab.Spawn(enemy.transform.position, Random.Range(0, 100));
-            enemy.GetComponent<Interfaces.IStat>().TakeDamage();
+            DamagePrefab.Spawn(enemy.transform.position, app.model.player.brain.stats.damage);
+            app.controller.player.EarnCoins(enemy.GetComponent<Interfaces.IStat>().TakeDamage(app.model.player.brain.stats.damage));
         }
     }
 

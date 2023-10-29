@@ -6,4 +6,6 @@ using UnityEngine;
 public class Stats
 {
     public float attackCooldown;
+    public int damage;
+    public int life;
 }

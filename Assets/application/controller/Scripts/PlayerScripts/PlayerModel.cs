@@ -18,10 +18,6 @@ public class PlayerModel : BlueGravityElement
     public float currentAttackCooldown;
     public bool canAttack;
 
-    [Header("States")]
-    public PlayerState State;
-    public enum PlayerState { Idle, Cautious,  Combat }
-
     [Header("Booleans")]
     public bool canInteract;
     public bool isInteracting;
@@ -34,10 +30,8 @@ public class PlayerModel : BlueGravityElement
     [Header("Player Money")]
     public int coins;
 
-
     private void Awake()
     {
-        State = PlayerState.Idle;
         speed = brain.idleSpeed;
         lastFacedDirectionIndex = 1;
         currentAttackCooldown = 0;
@@ -54,24 +48,6 @@ public class PlayerModel : BlueGravityElement
     {
         canAttack = false;
         currentAttackCooldown = brain.stats.attackCooldown;
-    }
-
-    public void EnterIdleState()
-    {
-        State = PlayerState.Idle;
-        speed = brain.idleSpeed;
-    }
-
-    public void EnterCautiousState()
-    {
-        State = PlayerState.Cautious;
-        speed = brain.cautiousSpeed;
-    }
-
-    public void EnterCombatMode()
-    {
-        State = PlayerState.Combat;
-        speed = brain.combatSpeed;
     }
 
     public void setPlayerRunning(bool statement)
@@ -112,6 +88,7 @@ public class PlayerModel : BlueGravityElement
     public void EarnCoins(int pAmount)
     {
         coins += pAmount;
+
     }
 
     public void WasteCoins(int pAmount)

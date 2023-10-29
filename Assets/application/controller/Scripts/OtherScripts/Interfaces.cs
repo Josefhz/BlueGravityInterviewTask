@@ -6,6 +6,6 @@ public class Interfaces : MonoBehaviour
 {
     public interface IStat
     {
-        public void TakeDamage();
+        public int TakeDamage(int pDamage);
     }
 }

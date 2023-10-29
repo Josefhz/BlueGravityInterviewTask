@@ -47,6 +47,8 @@ public class PlayerController : BlueGravityElement
 
     public void EarnCoins(int pAmount)
     {
+        if (pAmount == 0) return;
+
         app.model.player.EarnCoins(pAmount);
         app.view.player.EarnCoinsVFX(pAmount);
 

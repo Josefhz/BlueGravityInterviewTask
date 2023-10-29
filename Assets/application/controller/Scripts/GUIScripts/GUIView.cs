@@ -84,6 +84,7 @@ public class GUIView : BlueGravityElement
     public void OnSellItemsClick()
     {
         // sell gems
+        app.controller.player.EarnCoins(Random.Range(0, 100));
     }
 
     public void OnCommandClick()

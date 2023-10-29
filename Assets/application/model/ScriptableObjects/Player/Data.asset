@@ -15,9 +15,11 @@ MonoBehaviour:
   idleSpeed: 8
   cautiousSpeed: 8
   combatSpeed: 8
-  attackRange: 5
+  attackRange: 1
   stats:
     attackCooldown: 0.2
+    damage: 10
+    life: 10
   AttackAnimationState:
   - Attack 01
   - Attack 02

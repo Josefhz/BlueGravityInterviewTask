@@ -7,6 +7,7 @@ public class BlueGravityView : BlueGravityElement
     [HideInInspector] public PlayerView player;
     [HideInInspector] public NPCView npc;
     [HideInInspector] public GUIView gui;
+    [HideInInspector] public EnemyView enemy;
 
 
     public void Init()
@@ -14,9 +15,11 @@ public class BlueGravityView : BlueGravityElement
         player = GetComponent<PlayerView>();
         npc = GetComponent<NPCView>();
         gui = GetComponent<GUIView>();
+        enemy = GetComponent<EnemyView>();
 
         player.InitAppInstance(app);
         npc.InitAppInstance(app);
         gui.InitAppInstance(app);
+        enemy.InitAppInstance(app);
     }
 }

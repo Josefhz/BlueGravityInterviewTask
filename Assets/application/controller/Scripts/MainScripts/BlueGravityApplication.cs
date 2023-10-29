@@ -24,27 +24,5 @@ public class BlueGravityApplication : MonoBehaviour
         controller.Init();
     }
 
-    private void Update()
-    {
-        PlayerMovementInput();
-        PlayerMovement();
-        PlayerAttack();
-    }
-
-    void PlayerAttack()
-    {
-        controller.player.AttackInput();
-    }
-
-    void PlayerMovement()
-    {
-        controller.player.Move();
-    }
-
-    void PlayerMovementInput()
-    {
-        controller.player.MovementInput();
-    }
-
 
 }
