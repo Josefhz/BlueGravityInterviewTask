@@ -79385,6 +79385,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6753827428202463565, guid: 9c0e0cc1315f04d8888efe783e0470df, type: 3}
+      propertyPath: m_Text
+      value: Blue Gravity Recruiter
+      objectReference: {fileID: 0}
     - target: {fileID: 6753827428582199392, guid: 9c0e0cc1315f04d8888efe783e0470df, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

@@ -14,17 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactRange: 3
   possibleDialogues:
-  - speech: Welcome to your trial as a Bounty Hunter, Josef We are Blue Gravity and
-      we must only recruit the best ones. You are imprisoned inside this dungeon
-      until u gather enough gold to buy the whole Blue Gravity gear.
+  - speech: Welcome to your trial as a Bounty Hunter, Josef. We are Blue Gravity
+      and we must only recruit the best ones. You are imprisoned inside this dungeon
+      until you gather enough gold to buy the whole Blue Gravity gear.
     Answer: Alright, how will this work?
     isShop: 0
   - speech: It is pretty simple, there are a lot of trash crates that are thrown
       from the city above to inside this dungeon, break then and hope you find some
-      valuable gems inside. Other than that, u can also kill other prisoners to get
-      gems of then too. When u come back to me, ill pay cheapest price in every gem,
-      and will also bring with me some random gear we have for you whenever u feel
-      like.
+      valuable gems inside.  When u come back to me, ill pay cheapest price in every
+      gem, and will also bring with me some random gear we have for you whenever
+      you feel like.
     Answer: Sounds good.
     isShop: 0
   - speech: "If you don\u2019t want any of the gear I have here right now u can pay
